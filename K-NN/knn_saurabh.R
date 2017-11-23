@@ -17,11 +17,10 @@ test_set = subset(dataset, split == F)
 training_set[ , 1:2] = scale(training_set[ , 1:2])
 test_set[ , 1:2] = scale(test_set[ , 1:2])
 
-#Fitting Classifier to the Training set
-#Create your classifier here
-
-#Predicting the Test set results
-y_pred = predict(classifier, newdata = test_set[,-3])
+#Fitting KNN Classifier to the Training set and Predicting the Test set results
+#install.packages('class')
+library(class)
+y_pred = knn(train = training_set[, -3], test = test_set[, -3], cl = training_set[, 3], k = 5)
 
 #Making Confusion Matrix to evaluate the prediction
 cm = table(test_set[, 3], y_pred)
@@ -38,11 +37,9 @@ grid_set = expand.grid(X1, X2)
 #set[, 1] is age column and set[, 2] is Salary column
 
 colnames(grid_set) = c('Age', 'EstimatedSalary')
-
-y_grid = predict(classifier, newdata = grid_set)
-
+y_grid = knn(train = training_set[, -3], test = grid_set, cl = training_set[, 3], k = 5)
 plot(set[, -3],
-     main = 'Classifier (Training set)',
+     main = 'KNN Classifier (Training set)',
      xlab = 'Age', ylab = 'Estimated Salary',
      xlim = range(X1), ylim = range(X2))    #x & y coordinates range . set[, -3] is for Age and Salary 
 
@@ -63,10 +60,9 @@ grid_set = expand.grid(X1, X2)
 
 colnames(grid_set) = c('Age', 'EstimatedSalary')
 
-y_grid = predict(classifier, newdata = grid_set)
-
+y_grid = knn(train = training_set[, -3], test = grid_set, cl = training_set[, 3], k = 5)
 plot(set[, -3],
-     main = 'Classifier (Test set)',
+     main = 'KNN Classifier (Test set)',
      xlab = 'Age', ylab = 'Estimated Salary',
      xlim = range(X1), ylim = range(X2))    #x & y coordinates range . set[, -3] is for Age and Salary 
 
