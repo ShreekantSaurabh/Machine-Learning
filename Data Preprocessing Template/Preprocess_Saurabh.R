@@ -5,7 +5,7 @@
 dataset = read.csv('Data.csv')
 #dataset = dataset[ , 2:3]
 
-#Taking care og missing data
+#Taking care of missing data
 dataset$Age = ifelse(is.na(dataset$Age), 
                      ave(dataset$Age, FUN = function(x) mean(x, na.rm = T)),
                      dataset$Age)
