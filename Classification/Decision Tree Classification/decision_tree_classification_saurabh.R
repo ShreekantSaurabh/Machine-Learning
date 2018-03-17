@@ -25,7 +25,7 @@ classifier = rpart(formula = Purchased ~ ., data = training_set)
 #Predicting the Test set results
 y_pred = predict(classifier, newdata = test_set[,-3], type = 'class')
 #In case of Decision Tree classification, the default is to return probability predictions of data type matrix (otherwise it is a vector)
-#type = 'class' is used to convert matrix to factor
+#type = 'class' is used for classification. It converts matrix to factor
 
 #Making Confusion Matrix to evaluate the prediction
 cm = table(test_set[, 3], y_pred)
