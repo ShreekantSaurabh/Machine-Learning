@@ -1,5 +1,5 @@
 #Set working directory
-#setwd("D:/ML & R/Machine Learning/Machine Learning A-ZT Hands-On Python & R In Data Science/2 Data Preprocessing")
+#setwd("D:/ML & R/2 Data Preprocessing")
 
 #Importing data
 dataset = read.csv('Data.csv')
