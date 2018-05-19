@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import os
 
 #Set working directory & import data
-os.chdir("D:\\ML & R\\Machine Learning\\Machine Learning A-Z™ Hands-On Python & R In Data Science\\2 Data Preprocessing")
+os.chdir("D:\\ML & R\\2 Data Preprocessing")
 dataset = pd.read_csv("Data.csv")
 
 X=dataset.iloc[:,:-1].values
